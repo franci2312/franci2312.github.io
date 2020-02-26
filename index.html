@@ -17,7 +17,7 @@
 <code>[variabile]</code> indica una variabile con valore a scelta dell’utente<br>
 <code>&lt;variabile&gt;</code> indica una variabile statica (valore consultabile nell’indice finale)<br>
 La sintassi per rappresentare il json è formattata come segue:<br>
-l’oggetto base è chiamato <code>res(id)</code> (response) e vari oggetti vengono rappresentati con un <code>.</code> e gli array con <code>[n]</code> esempio: <code>res(12).studenti[0].2019_2020.foto</code> indica l’elemento <code>foto</code> con valore <code>img.jpg</code> contenuto nel json seguente</p>
+l’oggetto base è chiamato <code>res(id)</code> (response) e vari oggetti vengono rappresentati con un <code>.</code> e gli array con <code>[n]</code> esempio: <code>res(12A).studenti[0].2019_2020.foto</code> indica l’elemento <code>foto</code> con valore <code>img.jpg</code> contenuto nel json seguente</p>
 <pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
   <span class="token string">"studenti"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
@@ -181,6 +181,58 @@ l’oggetto base è chiamato <code>res(id)</code> (response) e vari oggetti veng
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
+</code></pre>
+<h3 id="login-1">Login</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>ROOT/utenti/</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td>JSON, UrlEncoded</td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Refresh token</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td><code>{Token}</code></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>02</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 01R</span>
+<span class="token comment">// {Token} = req(01A).token (string)</span>
+<span class="token punctuation">{</span>
+    <span class="token string">"token"</span><span class="token punctuation">:</span> <span class="token string">"{Token}"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 02A</span>
+<span class="token comment">// Risposta uguale a 01A, con token diverso</span>
+<span class="token comment">// Il token precedente viene annullato</span>
 </code></pre>
 </div>
 </body>
