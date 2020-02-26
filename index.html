@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastercom API</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="mastercom-internal-api-documentation">Mastercom internal api documentation</h1>
+<p>Creata da Francesco Milova, basata sull’app di Mastercom (it.mastercom.parents.app) e sulla documentazione interna fornita dall’endpoint usando OPTIONS e HEAD. Copyright 2020</p>
+<h2 id="basi">Basi</h2>
+<h3 id="sintassi">Sintassi</h3>
+<p><code>{variabile}</code> indica una variabile ottenuta attraverso una richiesta api precedente<br>
+<code>[variabile]</code> indica una variabile con valore a scelta dell’utente<br>
+<code>&lt;variabile&gt;</code> indica una variabile statica (valore consultabile nell’indice finale)<br>
+La sintassi per rappresentare il json è formattata come segue:<br>
+l’oggetto base è chiamato <code>res(id)</code> (response) e vari oggetti vengono rappresentati con un <code>.</code> e gli array con <code>[n]</code> esempio: <code>res(12).studenti[0].2019_2020.foto</code> indica l’elemento <code>foto</code> con valore <code>img.jpg</code> contenuto nel json seguente</p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+  <span class="token string">"studenti"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">"2019_2020"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"foto"</span><span class="token punctuation">:</span> <span class="token string">"img.jpg"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"nome"</span><span class="token punctuation">:</span> <span class="token string">"mario"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">"2018_2019"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"foto"</span><span class="token punctuation">:</span> <span class="token string">"img2.jpg"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"cognome"</span><span class="token punctuation">:</span> <span class="token string">"rossi"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Ogni metodo api contiene all’inizio una tabella che fornisce informazioni di base sull’api simile a questa</p>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th>STUDENTE/example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì (Usando <code>{Token}</code>)</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td>JSON, UrlEncoded</td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON + HTML</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Metodo di esempio</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td><code>[dato1]</code> <code>[dato2]</code></td>
+</tr>
+</tbody>
+</table><h3 id="endpoints">Endpoints</h3>
+<p>L’url base è <code>https://mp.registroelettronico.com/</code> e verrà riferito sempre come <code>ROOT/</code>. L’api possiede vari endpoint. Quello più usato <code>ROOT/v2/</code> fornisce la maggior parte delle richieste dell’api. l’endpoint <code>ROOT/v2/scuole/&lt;Scuola&gt;/studenti/{studente}/{as}/</code> è usato per ottenere informazioni di uno studente e verrà chiamato <code>STUDENTE/</code>.</p>
+<h3 id="lista-degli-endpoint-trovati">Lista degli endpoint trovati</h3>
+<p>Da <code>ROOT/</code>:</p>
+<ul>
+<li><code>/utenti/login</code> (Autenticazione)</li>
+<li><code>/utenti</code></li>
+</ul>
+<p>Da <code>STUDENTE/</code></p>
+<ul>
+<li><code>/aggiornamenti</code></li>
+<li><code>/materie</code></li>
+<li><code>/assenze</code></li>
+<li><code>/voti</code></li>
+<li><code>/note</code></li>
+<li><code>/argomenti</code></li>
+<li><code>/compiti</code></li>
+<li><code>/agenda</code></li>
+<li><code>/pagelle</code></li>
+<li><code>/notizie</code> (Non funzionante)</li>
+<li><code>/aggiornamenti</code></li>
+<li><code>/allegati</code> (Funzionalità non chiara)</li>
+<li><code>/orario</code></li>
+<li><code>/comunicazioni</code></li>
+<li><code>/comunicazioni/{id}</code></li>
+<li><code>/colloqui</code> (Funzionalità non chiara)</li>
+</ul>
+<p>Non è ancora stato trovato l’endpoint per il reset della password, verrà temporaneamente indicato come <code>PWD/</code></p>
+<h2 id="autenticazione">Autenticazione</h2>
+<p>L’autenticazione è formata da 3 endpoint: <code>PWD/</code>, <code>ROOT/utenti/login</code> e <code>ROOT/utenti</code>.</p>
+<h3 id="login">Login</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>ROOT/utenti/login</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td>JSON, UrlEncoded</td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Login utente</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td><code>[Username]</code> <code>[Password]</code> <code>&lt;Scuola&gt;</code></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>01</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 01R</span>
+<span class="token punctuation">{</span>
+    <span class="token string">"scuola"</span><span class="token punctuation">:</span> <span class="token string">"&lt;Scuola&gt;"</span><span class="token punctuation">,</span>
+    <span class="token string">"utente"</span><span class="token punctuation">:</span> <span class="token string">"[Username]"</span><span class="token punctuation">,</span>
+    <span class="token string">"password"</span><span class="token punctuation">:</span> <span class="token string">"[Password]"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 01A</span>
+<span class="token punctuation">{</span>
+  <span class="token string">"token"</span><span class="token punctuation">:</span> <span class="token string">"abcdef"</span><span class="token punctuation">,</span> <span class="token comment">// Usato nell'auth come {token}</span>
+  <span class="token string">"id_utente"</span><span class="token punctuation">:</span> <span class="token number">12345</span><span class="token punctuation">,</span>
+  <span class="token string">"studenti"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">"nome"</span><span class="token punctuation">:</span> <span class="token string">"MARIO ROSSI"</span><span class="token punctuation">,</span>
+      <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token comment">// Usato in STUDENTE/ come {studente}</span>
+      <span class="token string">"id_scuola"</span><span class="token punctuation">:</span> <span class="token number">456</span><span class="token punctuation">,</span> <span class="token comment">// uguale a &lt;Scuola&gt;</span>
+      <span class="token string">"foto"</span><span class="token punctuation">:</span> <span class="token string">"https://mp.registroelettronico.com/..."</span><span class="token punctuation">,</span>
+      <span class="token string">"anno_corrente"</span><span class="token punctuation">:</span> <span class="token string">"2019_2020"</span><span class="token punctuation">,</span>
+      <span class="token string">"anni"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token string">"2019_2020"</span><span class="token punctuation">,</span> <span class="token comment">// Usato in STUDENTE/ come {as}</span>
+          <span class="token string">"classe"</span><span class="token punctuation">:</span> <span class="token string">"1A"</span><span class="token punctuation">,</span>
+          <span class="token string">"descrizione"</span><span class="token punctuation">:</span> <span class="token string">"2019/2020 ()"</span><span class="token punctuation">,</span>
+          <span class="token string">"servizi"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"agenda"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token string">"alternanza"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token operator">...</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token operator">...</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">"servizi"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"agenda"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token string">"alternanza"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+        <span class="token operator">...</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+</body>
+
+</html>
