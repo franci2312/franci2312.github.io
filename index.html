@@ -282,6 +282,23 @@ TODO
 <pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 03A</span>
 TODO
 </code></pre>
+<h3 id="autenticare-le-richieste">Autenticare le richieste</h3>
+<p>Tutte le richieste che richiedono l’autenticazione via token vanno autenticate inserendo un header così formato:</p>
+
+<table>
+<thead>
+<tr>
+<th>Chiave</th>
+<th>Valore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authorization</td>
+<td><code>JWT {Token}</code></td>
+</tr>
+</tbody>
+</table><p>dove token è uguale a <code>obj(01A).token (string)</code></p>
 <h2 id="costruzione-endpoint-studente">Costruzione endpoint STUDENTE/</h2>
 <h3 id="dati-necessari">Dati necessari</h3>
 <p><code>&lt;Scuola&gt;</code>: Vedi glossario oppure <code>obj(01A).studenti[N].id_scuola (integer)</code><br>
@@ -298,6 +315,73 @@ TODO
 esempio url completo:<br>
 <code>https://mp.registroelettronico.com/v2/scuole/1234/studenti/0001/2020_2021/</code><br>
 Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne in alcuni casi.</p>
+<h2 id="informazioni-studente">Informazioni Studente</h2>
+<p>La lista degli endpoint disponibili è contenuta in <strong>Lista degli endpoint trovati</strong>.</p>
+<h3 id="aggiornamenti">Aggiornamenti</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/aggiornamenti</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Refresh token</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>02</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 04R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 04A</span>
+<span class="token punctuation">{</span>
+  <span class="token string">"argomenti"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"numero"</span><span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"voti"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"numero"</span><span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"assenze"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"numero"</span><span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span> <span class="token comment">// Ogni endpoint è associato ad un oggetto</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//Esempio di ISO8601 timestamp:</span>
+<span class="token comment">// 2020-01-02T10:30:45+01:00</span>
+<span class="token comment">// Indica il 2 Gennaio 2020 alle ore 10:30:45 con fuso orario +1 ora </span>
+</code></pre>
 </div>
 </body>
 
