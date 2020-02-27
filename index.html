@@ -446,6 +446,68 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
   <span class="token operator">...</span> <span class="token comment">//Ogni materia viene indicata</span>
 <span class="token punctuation">]</span>
 </code></pre>
+<h3 id="assenze">Assenze</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/assenze</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni assenze</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>06</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 06R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 06A</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">12345</span><span class="token punctuation">,</span>
+    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span> <span class="token comment">// Indica il giorno e ora dell'assenza</span>
+    <span class="token string">"simbolo"</span><span class="token punctuation">:</span> <span class="token string">"A"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Assenza del DD-MM-YYYY"</span><span class="token punctuation">,</span>
+    <span class="token string">"colore_simbolo"</span><span class="token punctuation">:</span> <span class="token string">"#FF0000"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"&lt;style type='text/css'&gt;div, span, p, h1,h2,h3,h4,h5,h6 {font-family: 'OpenSans';} .container {float: left;width:100%;overflow: auto;}&lt;/style&gt;&lt;h1&gt;DD-MM-YYYY      &lt;/h1&gt;&lt;h4&gt;Assenza Giornaliera&lt;/h4&gt;&lt;p&gt;Giustificata: No&lt;/p&gt;"</span><span class="token punctuation">,</span>
+    <span class="token string">"giustificabile"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token string">"giustificata"</span><span class="token punctuation">:</span> <span class="token string">"NO"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">]</span>
+</code></pre>
 </div>
 </body>
 
