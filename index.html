@@ -345,14 +345,14 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 </tr>
 <tr>
 <td>Funzione</td>
-<td>Refresh token</td>
+<td>Ottieni aggiornamenti</td>
 </tr>
 <tr>
 <td>Dati</td>
 <td></td>
 </tr>
 </tbody>
-</table><p>Esempio <code>02</code>:</p>
+</table><p>Esempio <code>04</code>:</p>
 <ul>
 <li>Richiesta</li>
 </ul>
@@ -381,6 +381,70 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <span class="token comment">//Esempio di ISO8601 timestamp:</span>
 <span class="token comment">// 2020-01-02T10:30:45+01:00</span>
 <span class="token comment">// Indica il 2 Gennaio 2020 alle ore 10:30:45 con fuso orario +1 ora </span>
+</code></pre>
+<h3 id="materie">Materie</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/materie</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni materie</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>05</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 05R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 05A</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span>
+    <span class="token string">"descrizione"</span><span class="token punctuation">:</span> <span class="token string">"NOME MATERIA"</span><span class="token punctuation">,</span>
+    <span class="token string">"ordinamento"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">// Valore non utile</span>
+    <span class="token string">"professori"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span>
+        <span class="token string">"nome"</span><span class="token punctuation">:</span> <span class="token string">"NOME COGNOME"</span><span class="token punctuation">,</span>
+        <span class="token string">"ordinamento"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// Sempre uguale a 0</span>
+        <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Docente"</span> <span class="token comment">// Sempre uguale a "Docente"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token operator">...</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span> <span class="token comment">//Ogni materia viene indicata</span>
+<span class="token punctuation">]</span>
 </code></pre>
 </div>
 </body>
