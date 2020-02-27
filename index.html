@@ -585,9 +585,126 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
   <span class="token operator">...</span>
 <span class="token punctuation">]</span>
 </code></pre>
+<h3 id="note">Note</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/note</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni note disciplinari</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>08</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 08R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 08A</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"simbolo"</span><span class="token punctuation">:</span> <span class="token string">"ND"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Contenuto nota"</span><span class="token punctuation">,</span>
+    <span class="token string">"colore_simbolo"</span><span class="token punctuation">:</span> <span class="token string">"#FF0000"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"PROFESSORE"</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS, contiene solo il contenuto nota"</span><span class="token punctuation">,</span>
+    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h3 id="argomenti">Argomenti</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/argomenti</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni argomenti</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>09</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 09R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 09A</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"NOME MATERIA"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"sintesi dell'argomento a cura del professore"</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con argomento"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
+    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token number">12345</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">]</span>
+</code></pre>
 <h4 id="endpoint-rimanenti---todo">Endpoint rimanenti - TODO</h4>
 <ul>
-<li><code>/note</code></li>
 <li><code>/argomenti</code></li>
 <li><code>/compiti</code></li>
 <li><code>/agenda</code></li>
