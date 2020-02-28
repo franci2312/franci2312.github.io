@@ -944,11 +944,143 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
   <span class="token operator">...</span>
 <span class="token punctuation">]</span>
 </code></pre>
-<h4 id="endpoint-rimanenti---todo">Endpoint rimanenti - TODO</h4>
+<h3 id="comunicazioni">Comunicazioni</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/comunicazioni</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni comunicazioni</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>14</code>:</p>
 <ul>
-<li><code>/comunicazioni</code></li>
-<li><code>/comunicazioni/{id}</code></li>
+<li>Richiesta</li>
 </ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 14R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 14A</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token string">"ID unico comunicazione"</span><span class="token punctuation">,</span>
+    <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">// -1 se assente o id materia</span>
+    <span class="token string">"id_mittente"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Titolo comunicazione"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"Nome Cognome mittente"</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML testo comunicazione"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Per scraping rimuovere tag HTML</span>
+    <span class="token string">"allegati"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// Potrebbe essere vuoto</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">"descrizione"</span><span class="token punctuation">:</span> <span class="token string">"Nome file"</span><span class="token punctuation">,</span>
+        <span class="token string">"allegato"</span><span class="token punctuation">:</span> <span class="token string">"URL download allegato"</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token operator">...</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"mittente"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"id_mittente"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+      <span class="token string">"cognome"</span><span class="token punctuation">:</span> <span class="token string">"Cognome mittente"</span><span class="token punctuation">,</span>
+      <span class="token string">"nome"</span><span class="token punctuation">:</span> <span class="token string">"Nome mittente"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">"presa_visione"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token comment">// -1 se non necessario</span>
+    <span class="token comment">// 0 se necessario e non presa visione</span>
+    <span class="token comment">// 1 se necessario e presa visione</span>
+    <span class="token string">"da_leggere"</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">// Indica se necessario prendere visione</span>
+    <span class="token string">"data_lettura"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Potrebbe essere null</span>
+    <span class="token string">"data_presa_visione"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Potrebbe essere null</span>
+    <span class="token string">"sottoscrizione"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h3 id="gestione-comunicazioni">Gestione comunicazioni</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/comunicazioni/{id}</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>PUT</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td>URL</td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Segna comunicazione come letta</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>15</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 15R</span>
+<span class="token comment">// {id} = obj(14A)[N].id (string)</span>
+<span class="token comment">// UrlEncoded e JSON non supportati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 15A</span>
+<span class="token comment">// Uguale a 14A, ma con un solo item nell'array</span>
+
+<span class="token comment">// "data_lettura" e "data_presa_visione" vengono impostati</span>
+<span class="token comment">// se non lo erano già </span>
+</code></pre>
 </div>
 </body>
 
