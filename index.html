@@ -15,7 +15,7 @@
 <h3 id="sintassi">Sintassi</h3>
 <p><code>{variabile}</code> indica una variabile ottenuta attraverso una richiesta api precedente<br>
 <code>[variabile]</code> indica una variabile con valore a scelta dell’utente<br>
-<code>&lt;variabile&gt;</code> indica una variabile statica (valore consultabile nell’indice finale)<br>
+<code>&lt;variabile&gt;</code> indica una variabile statica<br>
 La sintassi per rappresentare il json è formattata come segue:<br>
 l’oggetto base è chiamato <code>obj(id)</code> (object) e vari oggetti vengono rappresentati con un <code>.</code> e gli array con <code>[N]</code> (N indica un integer generico ma può essere sostituito da un numero, ciò indica un indice specifico) esempio: <code>obj(12A).studenti[0].2019_2020.foto</code> indica l’elemento <code>foto</code> con valore <code>img.jpg</code> contenuto nel json seguente</p>
 <pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
@@ -496,7 +496,8 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
   <span class="token punctuation">{</span>
     <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">12345</span><span class="token punctuation">,</span>
     <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span> <span class="token comment">// Indica il giorno e ora dell'assenza</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span> 
+    <span class="token comment">// Indica il giorno e ora dell'assenza</span>
     <span class="token string">"simbolo"</span><span class="token punctuation">:</span> <span class="token string">"A"</span><span class="token punctuation">,</span>
     <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Assenza del DD-MM-YYYY"</span><span class="token punctuation">,</span>
     <span class="token string">"colore_simbolo"</span><span class="token punctuation">:</span> <span class="token string">"#FF0000"</span><span class="token punctuation">,</span>
@@ -559,23 +560,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
   <span class="token punctuation">{</span>
     <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span>
     <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
-    <span class="token string">"simbolo"</span><span class="token punctuation">:</span> <span class="token string">"6"</span><span class="token punctuation">,</span>
+    <span class="token string">"simbolo"</span><span class="token punctuation">:</span> <span class="token string">"voto in cifra"</span><span class="token punctuation">,</span>
     <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"MATERIA"</span><span class="token punctuation">,</span>
     <span class="token string">"colore_simbolo"</span><span class="token punctuation">:</span> <span class="token string">"#22BB00"</span><span class="token punctuation">,</span>
     <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"Scritto"</span><span class="token punctuation">,</span>
-    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con media voti e dettagli"</span><span class="token punctuation">,</span>
-    <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
-    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-    <span class="token string">"struttura_competenza"</span><span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-    <span class="token string">"note_competenza"</span><span class="token punctuation">:</span> <span class="token keyword">null</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">{</span>
-    <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token number">456</span><span class="token punctuation">,</span>
-    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
-    <span class="token string">"simbolo"</span><span class="token punctuation">:</span> <span class="token string">"6.5"</span><span class="token punctuation">,</span>
-    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"ALTRA MATERIA"</span><span class="token punctuation">,</span>
-    <span class="token string">"colore_simbolo"</span><span class="token punctuation">:</span> <span class="token string">"#22BB00"</span><span class="token punctuation">,</span>
-    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"Pratico"</span><span class="token punctuation">,</span>
     <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con media voti e dettagli"</span><span class="token punctuation">,</span>
     <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
     <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
@@ -638,7 +626,7 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
     <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Contenuto nota"</span><span class="token punctuation">,</span>
     <span class="token string">"colore_simbolo"</span><span class="token punctuation">:</span> <span class="token string">"#FF0000"</span><span class="token punctuation">,</span>
     <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"PROFESSORE"</span><span class="token punctuation">,</span>
-    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS, contiene solo il contenuto nota"</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS"</span><span class="token punctuation">,</span>
     <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
     <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -695,7 +683,7 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
   <span class="token punctuation">{</span>
     <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
     <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"NOME MATERIA"</span><span class="token punctuation">,</span>
-    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"sintesi dell'argomento a cura del professore"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"a cura del professore"</span><span class="token punctuation">,</span>
     <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con argomento"</span><span class="token punctuation">,</span>
     <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
     <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
@@ -751,16 +739,16 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 </ul>
 <pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 10A</span>
 <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-        <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token number">12345</span><span class="token punctuation">,</span>
-        <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
-        <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Compito"</span><span class="token punctuation">,</span>
-        <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"NOME MATERIA"</span><span class="token punctuation">,</span>
-        <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con compito"</span><span class="token punctuation">,</span>
-        <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
-        <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">...</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token number">12345</span><span class="token punctuation">,</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Compito"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"NOME MATERIA"</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con compito"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
+    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
 <span class="token punctuation">]</span>
 </code></pre>
 <h3 id="agenda">Agenda</h3>
@@ -1081,8 +1069,7 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <span class="token comment">// "data_lettura" e "data_presa_visione" vengono impostati</span>
 <span class="token comment">// se non lo erano già </span>
 </code></pre>
-<h2 id="filtri-e-allegati">Filtri e allegati</h2>
-<h3 id="filtri">Filtri</h3>
+<h2 id="filtri">Filtri</h2>
 <p>Vi sono 3 filtri disponibili nell’api, usati da alcuni endpoint. Questi filtri sono:</p>
 <ol>
 <li><code>data_inizio</code></li>
@@ -1090,7 +1077,14 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <li><code>id_materia</code></li>
 <li><code>stato</code></li>
 </ol>
-<p>I filtri usati da ogni endpoint sono presenti nella relativa tabella</p>
+<p>I filtri usati da ogni endpoint sono presenti nella relativa tabella.<br>
+Il formato dei filtri è:</p>
+<ol>
+<li><code>?data_inizio=YYYY-MM-DD</code> inclusivo</li>
+<li><code>?data_fine=YYYY-MM-DD</code> inclusivo</li>
+<li><code>?id_materia={id}</code></li>
+<li><code>?stato=libero/prenotato/concluso/pieno</code></li>
+</ol>
 </div>
 </body>
 
