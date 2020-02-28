@@ -69,13 +69,17 @@ l’oggetto base è chiamato <code>obj(id)</code> (object) e vari oggetti vengon
 <td>Dati</td>
 <td><code>[dato1]</code> <code>[dato2]</code></td>
 </tr>
+<tr>
+<td>Filtri</td>
+<td><code>stato</code> <code>data_inizio</code></td>
+</tr>
 </tbody>
 </table><h3 id="endpoints">Endpoints</h3>
 <p>L’url base è <code>https://mp.registroelettronico.com/</code> e verrà riferito sempre come <code>ROOT/</code>. L’api possiede vari endpoint. Quello più usato <code>ROOT/v2/</code> fornisce la maggior parte delle richieste dell’api. l’endpoint <code>ROOT/v2/scuole/&lt;Scuola&gt;/studenti/{studente}/{as}/</code> è usato per ottenere informazioni di uno studente e verrà chiamato <code>STUDENTE/</code>.</p>
 <h3 id="lista-degli-endpoint-trovati">Lista degli endpoint trovati</h3>
 <p>Da <code>ROOT/</code>:</p>
 <ul>
-<li><code>/utenti/login</code> (Autenticazione)</li>
+<li><code>/utenti/login</code></li>
 <li><code>/utenti</code></li>
 </ul>
 <p>Da <code>STUDENTE/</code></p>
@@ -133,6 +137,10 @@ l’oggetto base è chiamato <code>obj(id)</code> (object) e vari oggetti vengon
 <tr>
 <td>Dati</td>
 <td><code>[Username]</code> <code>[Password]</code> <code>&lt;Scuola&gt;</code></td>
+</tr>
+<tr>
+<td>Filtri</td>
+<td></td>
 </tr>
 </tbody>
 </table><p>Esempio <code>01</code>:</p>
@@ -215,6 +223,10 @@ l’oggetto base è chiamato <code>obj(id)</code> (object) e vari oggetti vengon
 <tr>
 <td>Dati</td>
 <td><code>{Token}</code></td>
+</tr>
+<tr>
+<td>Filtri</td>
+<td></td>
 </tr>
 </tbody>
 </table><p>Esempio <code>02</code>:</p>
@@ -480,6 +492,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <td>Dati</td>
 <td></td>
 </tr>
+<tr>
+<td>Filtri</td>
+<td><code>data_inizio</code> <code>data_fine</code></td>
+</tr>
 </tbody>
 </table><p>Esempio <code>06</code>:</p>
 <ul>
@@ -544,6 +560,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <td>Dati</td>
 <td></td>
 </tr>
+<tr>
+<td>Filtri</td>
+<td><code>data_inizio</code> <code>data_fine</code> <code>id_materia</code></td>
+</tr>
 </tbody>
 </table><p>Esempio <code>07</code>:</p>
 <ul>
@@ -602,6 +622,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <tr>
 <td>Funzione</td>
 <td>Ottieni note disciplinari</td>
+</tr>
+<tr>
+<td>Filtri</td>
+<td><code>data_inizio</code> <code>data_fine</code></td>
 </tr>
 <tr>
 <td>Dati</td>
@@ -667,6 +691,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <td>Dati</td>
 <td></td>
 </tr>
+<tr>
+<td>Filtri</td>
+<td><code>data_inizio</code> <code>data_fine</code> <code>id_materia</code></td>
+</tr>
 </tbody>
 </table><p>Esempio <code>09</code>:</p>
 <ul>
@@ -726,6 +754,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <td>Dati</td>
 <td></td>
 </tr>
+<tr>
+<td>Filtri</td>
+<td><code>data_inizio</code> <code>data_fine</code> <code>id_materia</code></td>
+</tr>
 </tbody>
 </table><p>Esempio <code>10</code>:</p>
 <ul>
@@ -784,6 +816,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <tr>
 <td>Dati</td>
 <td></td>
+</tr>
+<tr>
+<td>Filtri</td>
+<td><code>data_inizio</code> <code>data_fine</code> <code>id_materia</code></td>
 </tr>
 </tbody>
 </table><p>Esempio <code>11</code>:</p>
@@ -845,6 +881,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <td>Dati</td>
 <td></td>
 </tr>
+<tr>
+<td>Filtri</td>
+<td></td>
+</tr>
 </tbody>
 </table><p>Esempio <code>12</code>:</p>
 <ul>
@@ -903,6 +943,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <tr>
 <td>Dati</td>
 <td><code>[Giorno]</code></td>
+</tr>
+<tr>
+<td>Filtri</td>
+<td></td>
 </tr>
 </tbody>
 </table><p>Esempio <code>13</code>:</p>
@@ -965,6 +1009,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <tr>
 <td>Dati</td>
 <td></td>
+</tr>
+<tr>
+<td>Filtri</td>
+<td><code>data_inizio</code> <code>data_fine</code> <code>id_materia</code></td>
 </tr>
 </tbody>
 </table><p>Esempio <code>14</code>:</p>
@@ -1051,6 +1099,10 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <td>Dati</td>
 <td></td>
 </tr>
+<tr>
+<td>Filtri</td>
+<td></td>
+</tr>
 </tbody>
 </table><p>Esempio <code>15</code>:</p>
 <ul>
@@ -1078,13 +1130,11 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <li><code>stato</code></li>
 </ol>
 <p>I filtri usati da ogni endpoint sono presenti nella relativa tabella.<br>
-Il formato dei filtri è:</p>
-<ol>
-<li><code>?data_inizio=YYYY-MM-DD</code> inclusivo</li>
-<li><code>?data_fine=YYYY-MM-DD</code> inclusivo</li>
-<li><code>?id_materia={id}</code></li>
-<li><code>?stato=libero/prenotato/concluso/pieno</code></li>
-</ol>
+Il formato dei filtri è:<br>
+6. <code>?data_inizio=YYYY-MM-DD</code> inclusivo<br>
+7. <code>?data_fine=YYYY-MM-DD</code> inclusivo<br>
+8. <code>?id_materia={id}</code><br>
+9. <code>?stato=libero/prenotato/concluso/pieno</code></p>
 </div>
 </body>
 
