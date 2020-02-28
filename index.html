@@ -1130,11 +1130,84 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
 <li><code>stato</code></li>
 </ol>
 <p>I filtri usati da ogni endpoint sono presenti nella relativa tabella.<br>
-Il formato dei filtri è:<br>
-6. <code>?data_inizio=YYYY-MM-DD</code> inclusivo<br>
-7. <code>?data_fine=YYYY-MM-DD</code> inclusivo<br>
-8. <code>?id_materia={id}</code><br>
-9. <code>?stato=libero/prenotato/concluso/pieno</code></p>
+Il formato dei filtri è:</p>
+<ol>
+<li><code>?data_inizio=YYYY-MM-DD</code> inclusivo</li>
+<li><code>?data_fine=YYYY-MM-DD</code> inclusivo</li>
+<li><code>?id_materia={id}</code></li>
+<li><code>?stato=libero/prenotato/concluso/pieno</code></li>
+</ol>
+<h2 id="indice">Indice</h2>
+<p>Per lo scraping verrà creata una nuova API hostata su AWS<br>
+Costi:</p>
+
+<table>
+<thead>
+<tr>
+<th>Servizio</th>
+<th>Tipologia</th>
+<th>Crediti/richiesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assenze</td>
+<td>Scraping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Voti</td>
+<td>Scraping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Argomenti</td>
+<td>Scraping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Compiti</td>
+<td>Scraping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Agenda</td>
+<td>Scraping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Pagelle</td>
+<td>Scraping</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Comunicazioni</td>
+<td>Scraping</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Generico</td>
+<td>Scraping</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Qualsiasi</td>
+<td>Estrazione</td>
+<td>1</td>
+</tr>
+</tbody>
+</table><p>Un credito ha un costo di <code>‭€0,000007‬</code><br>
+Una richiesta è formata da coppie elemento-categoria inviata come blocco unico. Una richiesta può includere un numero illimitato di elementi, ma considera 15KB di JSON in uscita.<br>
+Esempio:</p>
+<blockquote>
+<ul>
+<li>Dati in entrata: 10 elementi per 1MB di testo totale in una singola richiesta api con categoria Generico</li>
+<li>Dati in uscita:  10 elementi per 450KB di output JSON ( 400KB di testo + 50KB di json per categorizzazione elementi)</li>
+</ul>
+<p>Crediti:  ( 450[KB] / 15[KB] ) * 5[crediti/richiesta] = 150 crediti<br>
+Costo: 150[crediti] * 0,000007[€/credito] = 0,00105€</p>
+</blockquote>
+<p>La categoria  <code>Estrazione</code> estrae automaticamente gli URL dal testo fornito, sia esso in formato HTML o testo normale.</p>
 </div>
 </body>
 
