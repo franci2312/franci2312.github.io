@@ -59,7 +59,7 @@ l’oggetto base è chiamato <code>obj(id)</code> (object) e vari oggetti vengon
 </tr>
 <tr>
 <td>Ritorna</td>
-<td>JSON + HTML</td>
+<td>JSON</td>
 </tr>
 <tr>
 <td>Funzione</td>
@@ -639,6 +639,7 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
     <span class="token string">"colore_simbolo"</span><span class="token punctuation">:</span> <span class="token string">"#FF0000"</span><span class="token punctuation">,</span>
     <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"PROFESSORE"</span><span class="token punctuation">,</span>
     <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS, contiene solo il contenuto nota"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
     <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token operator">...</span>
@@ -762,12 +763,189 @@ Le richieste fatte a questo endpoint sono principalmente richieste GET, tranne i
     <span class="token operator">...</span>
 <span class="token punctuation">]</span>
 </code></pre>
+<h3 id="agenda">Agenda</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/agenda</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni agenda (verifiche etc.)</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>11</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 11R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 11A</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token number">123</span><span class="token punctuation">,</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Titolo"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"Sottotitolo"</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con titolo e data"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
+    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">456</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h3 id="pagelle">Pagelle</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/pagelle</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td></td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni pagelle</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>12</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 12R</span>
+<span class="token comment">// No dati</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 12A</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token string">"ISO8601 timestamp"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"Pagella Fine 1° Trimestre"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"Sottotitolo"</span><span class="token punctuation">,</span>
+    <span class="token string">"dettaglio"</span><span class="token punctuation">:</span> <span class="token string">"HTML + CSS con contenuto pagella"</span><span class="token punctuation">,</span>
+    <span class="token comment">// Vedi indice per informazioni sul formato e scraping</span>
+    <span class="token string">"novita"</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token string">"allegati"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span> <span class="token comment">// Non funzionante</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h3 id="orario">Orario</h3>
+
+<table>
+<thead>
+<tr>
+<th>Url</th>
+<th><code>STUDENTE/orario</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auth</td>
+<td>Sì</td>
+</tr>
+<tr>
+<td>Metodo</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Accetta</td>
+<td>URL</td>
+</tr>
+<tr>
+<td>Ritorna</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Funzione</td>
+<td>Ottieni orario</td>
+</tr>
+<tr>
+<td>Dati</td>
+<td><code>[Giorno]</code></td>
+</tr>
+</tbody>
+</table><p>Esempio <code>13</code>:</p>
+<ul>
+<li>Richiesta</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 13R</span>
+<span class="token comment">// Dati passabili solo tramite URL</span>
+<span class="token comment">// UrlEncoded e JSON non ammessi</span>
+<span class="token comment">// Formato:</span>
+<span class="token comment">// STUDENTE/orario?giorno=YYYY-MM-DD</span>
+</code></pre>
+<ul>
+<li>Risposta:</li>
+</ul>
+<pre class=" language-json"><code class="prism  language-json"><span class="token comment">// ID: 13A</span>
+<span class="token comment">// Le materie con più professori sono formate da più</span>
+<span class="token comment">// oggetti separati, uno per professore per ora</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">"id_materia"</span><span class="token punctuation">:</span> <span class="token number">1234</span><span class="token punctuation">,</span>
+    <span class="token string">"ora_inizio"</span><span class="token punctuation">:</span> <span class="token string">"HH:MM"</span><span class="token punctuation">,</span>
+    <span class="token string">"ora_fine"</span><span class="token punctuation">:</span> <span class="token string">"HH:MM"</span><span class="token punctuation">,</span>
+    <span class="token string">"titolo"</span><span class="token punctuation">:</span> <span class="token string">"MATERIA"</span><span class="token punctuation">,</span>
+    <span class="token string">"sottotitolo"</span><span class="token punctuation">:</span> <span class="token string">"PROFESSORE (CLASSE)"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">]</span>
+</code></pre>
 <h4 id="endpoint-rimanenti---todo">Endpoint rimanenti - TODO</h4>
 <ul>
-<li><code>/agenda</code></li>
-<li><code>/pagelle</code></li>
-<li><code>/aggiornamenti</code></li>
-<li><code>/orario</code></li>
 <li><code>/comunicazioni</code></li>
 <li><code>/comunicazioni/{id}</code></li>
 </ul>
